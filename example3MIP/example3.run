@@ -1,0 +1,24 @@
+#RESET THE AMPL ENVIRONMENT
+reset;
+#reset is required to forget the old variables with same names. 
+#else ampl does not allow load new variables with old names
+
+#LOAD THE MODEL
+model example3.mod
+
+#LOAD THE DATA
+data example3.dat
+
+#DISPLAY THE PROBLEM FORMULATION
+expand z, Constraint;
+#we display the problem formulation to make sure that it is formulated correctly.
+#then we solve the problem.
+
+#CHANGE THE SOLVER (optional)
+option solver cplexamp;
+
+#SOLVE
+solve;
+
+#SHOW RESULTS
+display X, z;
