@@ -1,0 +1,10 @@
+data;
+
+set Products := bands coils plate;
+
+param:		tonsPerHour	dollarProfitPerTon	maxTons	minTons:=
+	bands	200			25					6000	1000
+	coils	140			30					4000	500
+	plate	160			29					3500	750;
+
+param maxHours	:= 40;
