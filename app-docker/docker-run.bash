@@ -32,7 +32,7 @@ else
 	fi
 	
 	if [ $1 == "run" ]; then
-		docker run --privileged=true --name $container_name -v /$(pwd):/mnt -p $externalPort:8080 -dit $image_name 
+		docker run --privileged=true --name $container_name --rm -v /$(pwd):/mnt -p $externalPort:8080 -dit $image_name 
 		docker exec -dt $container_name jupyter notebook --no-browser --ip=0.0.0.0 --port=8080 --allow-root --NotebookApp.token='' --NotebookApp.password=''
 	fi
 fi
