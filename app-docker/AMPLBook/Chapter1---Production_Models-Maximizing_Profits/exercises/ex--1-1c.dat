@@ -1,0 +1,16 @@
+data;
+
+set advertising_platform := number_of_minutes_in_TV number_of_pages_in_magazine	number_of_minutes_in_radio;
+set constraint_names := budget	person-week;
+
+param constraint_list:			budget	person-week :=
+number_of_minutes_in_TV			20000 		1
+number_of_pages_in_magazine		10000 		3
+number_of_minutes_in_radio		2000		1;
+
+param: 							customers_reached_per_minute_or_per_page  min_TVminutes :=
+number_of_minutes_in_TV					1800000 								10
+number_of_pages_in_magazine				1000000 								0
+number_of_minutes_in_radio				250000									0;
+
+param constraint_limits := budget 1000000 person-week 100;
