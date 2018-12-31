@@ -1,5 +1,3 @@
-Name: Don Jacob
-Linkedin: https://www.linkedin.com/in/donjacob/
 
 ### REFERENCE
 This project is adapted from the book Power System Modeling in GAMS. 

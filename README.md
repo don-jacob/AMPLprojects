@@ -3,6 +3,8 @@ projects using AMPL
 
 ### Note: To keep python libraries consistent I use, docker and conda.
 
+My linkedin page: https://www.linkedin.com/in/donjacob/
+
 Steps to run:
 
 * To run please clone the project.
