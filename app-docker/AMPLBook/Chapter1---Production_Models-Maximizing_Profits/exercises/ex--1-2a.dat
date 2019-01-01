@@ -1,0 +1,16 @@
+data;
+
+set Products := bands coils plate;
+set Stage := reheat	roll;
+
+param tonsPerHour:	reheat	roll:=
+	bands			200		200
+	coils			200		140
+	plate			200		160;
+
+param:		dollarProfitPerTon	maxTons	minTons:=
+	bands	25					6000	1000
+	coils	30					4000	500
+	plate	29					3500	750;
+
+param maxHours	:= reheat 35 roll 40;
