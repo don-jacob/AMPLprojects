@@ -8,10 +8,10 @@ param tonsPerHour:	reheat	roll:=
 	coils			200		140
 	plate			200		160;
 	
-param:		dollarProfitPerTon	maxTons	minTons:=
-	bands	25					6000	1000
-	coils	30					4000	500
-	plate	29					3500	750;
+param:		dollarProfitPerTon	maxTons	minTons minTonsRatio:=
+	bands	25					6000	1000		0.4
+	coils	30					4000	500			0.1
+	plate	29					3500	750			0.4;
 
 param	weight_limit	:=	6500;
 

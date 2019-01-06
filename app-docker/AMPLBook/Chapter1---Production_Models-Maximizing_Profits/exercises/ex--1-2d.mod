@@ -6,16 +6,17 @@ param maxHours {Stage} >= 0;
 param dollarProfitPerTon {Products};
 param maxTons {Products} >= 0;
 param minTons {Products} >= 0;
+param minTonsRatio {Products} >= 0;
 param weight_limit >= 0;
 
-var X {p in Products} >= minTons[p], <= maxTons[p];
+var X {p in Products} >= 0, <= maxTons[p];
 
 #maximize Total_Profit: sum {p in Products} dollarProfitPerTon[p] * X[p];
 maximize tons_produced: sum {p in Products} X[p];
 
 subject to Time {s in Stage}: sum {p in Products} (1/tonsPerHour[p,s]) * X[p] <= maxHours[s];
-
 subject to max_weight: sum {p in Products} X[p] <= weight_limit;
+subject to min_tons {j in Products}: minTonsRatio[j] * (sum {k in Products} X[k]) <= X[j];
 
 ###Explanations....
 
