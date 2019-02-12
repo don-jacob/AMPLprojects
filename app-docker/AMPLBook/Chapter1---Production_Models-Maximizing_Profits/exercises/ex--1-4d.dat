@@ -1,0 +1,19 @@
+data;
+
+
+
+set cars := T C L;
+
+set constraint_names := time_per_car;
+
+param constraint_list: time_per_car :=
+                    T         1
+                    C         2
+                    L         3;
+
+param: profit_per_car min_orders_per_car :=
+  T          200              10
+  C          500              20
+  L          700              15;
+
+param constraint_limits := time_per_car 120

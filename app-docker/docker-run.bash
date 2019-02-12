@@ -4,7 +4,6 @@ name="app-ampl_image"
 tag="0.1"
 image_name="${name}:${tag}"
 container_name="app-ampl_container"
-
 externalPort=8080
 
 ampl_binary_download_link="https://ampl.com/demo/ampl.linux64.tgz"
@@ -24,15 +23,15 @@ if [ -z $1 ]; then
 
 else
 
-	docker container ls --all --filter name=$container_name -q | grep . && docker container stop $container_name && docker container rm --force --volumes $container_name || echo "container, ${container_name} not found, nothing to remove"
+sudo docker container ls --all --filter name=$container_name -q | grep . && sudo docker container stop $container_name && sudo docker container rm --force --volumes $container_name || echo "container, ${container_name} not found, nothing to remove"
 	
 	if [ $1 == "build" ]; then
-		docker images $image_name -aq | grep . && docker rmi $image_name --force || echo "docker, ${image_name} not found"
-		docker build -t $image_name .
+		sudo docker images $image_name -aq | grep . && sudo docker rmi $image_name --force || echo "docker, ${image_name} not found"
+		sudo docker build -t $image_name .
 	fi
 	
 	if [ $1 == "run" ]; then
-		docker run --privileged=true --name $container_name --rm -v /$(pwd):/mnt -p $externalPort:8080 -dit $image_name 
-		docker exec -dt $container_name jupyter notebook --no-browser --ip=0.0.0.0 --port=8080 --allow-root --NotebookApp.token='' --NotebookApp.password=''
+		sudo docker run --rm --privileged=true --name $container_name --rm -v /$(pwd):/mnt -p $externalPort:8080 -dit $image_name 
+		sudo docker exec -dt $container_name jupyter notebook --no-browser --ip=0.0.0.0 --port=8080 --allow-root --NotebookApp.token='' --NotebookApp.password=''
 	fi
 fi
